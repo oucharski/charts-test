@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { existingCharts } from "./api/chart-data/existingCharts";
+import { ChartWrapper } from "../components/ChartWrapper";
 
 const fetcher = (args: any) => fetch(args).then((res) => res.json());
 
@@ -58,7 +59,9 @@ const Home: NextPage = () => {
           </FormControl>
         </Grid>
         <Grid item xs={12}>
-          <ReactEcharts key={selectedChart} option={data} />
+          <ChartWrapper>
+            <ReactEcharts key={selectedChart} option={data} />
+          </ChartWrapper>
         </Grid>
       </Grid>
     </Fade>
